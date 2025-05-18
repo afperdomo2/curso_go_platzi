@@ -7,6 +7,8 @@ Este repositorio contiene los ejercicios y proyectos desarrollados durante el cu
 - **HolaMundo/**: Ejemplo básico de un programa "Hola Mundo" en Go.
   - `main.go`: Archivo fuente con el código del programa.
   - `main.exe`: Archivo ejecutable compilado.
+- **Paquetes/**: Ejemplos de manejo de paquetes y variables de entorno.
+  - `main.go`: Acceso a variables de entorno multiplataforma.
 
 ## Programas Incluidos
 
@@ -34,6 +36,43 @@ O simplemente ejecute el archivo binario compilado:
 
 ```bash
 ./main.exe
+```
+
+### Variables de Entorno
+
+Un programa que muestra cómo acceder a variables de entorno de manera multiplataforma (Windows/Linux).
+
+```go
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+	// En Windows, la variable HOME no existe por defecto
+	// Se debe usar USERPROFILE en su lugar
+	homeDir := os.Getenv("HOME")
+	
+	// Si HOME está vacío (Windows), intentamos con USERPROFILE
+	if homeDir == "" {
+		homeDir = os.Getenv("USERPROFILE")
+		if homeDir == "" {
+			fmt.Println("No se encontró la variable de entorno HOME ni USERPROFILE")
+			return
+		}
+		fmt.Printf("La variable de entorno USERPROFILE es: %s\n", homeDir)
+	} else {
+		fmt.Printf("La variable de entorno HOME es: %s\n", homeDir)
+	}
+}
+```
+
+Para ejecutar este programa, navegue al directorio Paquetes y ejecute:
+
+```bash
+go run main.go
 ```
 
 ## Requisitos
