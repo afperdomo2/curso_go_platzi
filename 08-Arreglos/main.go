@@ -8,6 +8,7 @@ func main() {
 	fmt.Println("Arreglo inicial:", arreglo)
 
 	arreglo[4] = 100 // Asignación de un valor al índice 4 del arreglo
+	// arreglo[8] = 200 // ❌ Esto causaría un error de índice fuera de rango
 	fmt.Println("Arreglo después de asignar valor:", arreglo)
 	fmt.Println("Elemento en la posición 4:", arreglo[4])
 
