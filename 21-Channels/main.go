@@ -5,6 +5,14 @@ import (
 	"time"
 )
 
+// !Channles
+// Los canales (channels) son una forma de comunicación entre goroutines en Go.
+// Permiten enviar y recibir datos entre goroutines de manera segura y sincronizada.
+// Los canales son útiles para coordinar la ejecución de goroutines y compartir datos entre ellas.
+
+// En este ejemplo, creamos dos canales y dos goroutines que envían mensajes a estos canales.
+// Utilizamos un select para recibir mensajes de ambos canales, permitiendo que el programa
+
 func main() {
 	// Crear dos canales
 	canal1 := make(chan string)
@@ -14,9 +22,9 @@ func main() {
 	go func() {
 		for i := 1; i <= 3; i++ {
 			canal1 <- fmt.Sprintf("Mensaje %d desde canal 1", i)
-			time.Sleep(300 * time.Millisecond)
+			time.Sleep(300 * time.Millisecond) // Simula un retraso en el envío de mensajes
 		}
-		close(canal1)
+		close(canal1) // Cerrar el canal1 al finalizar
 	}()
 
 	// Goroutine para canal2
@@ -30,6 +38,8 @@ func main() {
 
 	// Recibir mensajes de ambos canales
 	for canal1 != nil || canal2 != nil {
+		// Utilizamos select para esperar mensajes de ambos canales
+		// El select permite manejar múltiples canales de manera concurrente
 		select {
 
 		case msg, ok := <-canal1: // Recibe mensajes del canal1
