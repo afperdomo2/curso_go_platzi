@@ -5,6 +5,14 @@ import (
 	"time"
 )
 
+// Este ejercicio implementa:
+// !channels:
+// Para manejar la comunicación entre goroutines
+// !goroutines
+// Para ejecutar tareas simultáneamente
+// !select:
+// Para esperar múltiples operaciones
+
 func main() {
 	// Creamos un canal por cada ítem del pedido
 	hamburguesa := make(chan string)

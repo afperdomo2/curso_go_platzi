@@ -6,6 +6,16 @@ import (
 	"time"
 )
 
+// Este ejercicio implementa:
+// !channels:
+// Para manejar la comunicación entre goroutines
+// !goroutines:
+// Para ejecutar tareas simultáneamente
+// !select:
+// Para esperar múltiples operaciones
+// !timeout:
+// Para manejar tiempos de espera
+
 // Simula una consulta a un servidor externo
 func consultarServidor(nombre string, canal chan<- string) {
 	fmt.Printf("🔍 Consultando %s...\n", nombre)
