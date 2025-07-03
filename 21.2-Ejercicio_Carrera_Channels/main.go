@@ -21,7 +21,6 @@ func consultarServidor(nombre string, canal chan<- string) {
 // Este patrón es útil para mejorar la latencia en aplicaciones distribuidas,
 // ya que permite obtener la respuesta del servidor más rápido sin esperar
 // a que todos los servidores respondan.
-
 func main() {
 	// 1. Crea dos canales para recibir respuestas de cada servidor
 	servidor1 := make(chan string)
