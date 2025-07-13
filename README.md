@@ -17,6 +17,19 @@ go run 01-HolaMundo/main.go
 go run 01-Paquetes/main.go
 ```
 
+### 2.2. Instalar un paquete
+
+```sh
+# Ir a la carpeta o ruta
+cd 28-VariablesEntorno
+
+#s
+go mod init curso-go
+
+#
+go get github.com/joho/godotenv
+```
+
 ### ▶️ 2.2. Code Runner (Extensión de VS Code)
 
 - Se selecciona todo el código
